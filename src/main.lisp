@@ -97,12 +97,12 @@
     (t nil)))
      
 (defparameter turn-counter 0)
-(defun game2 (&key (board (make-array '(3 3) :initial-element '-)))
+(defun game (&key (board (make-array '(3 3) :initial-element '-)))
   (when (game-over-p board)
     (display-board board)
     (setf turn-counter 0)
     (format t "Game over")
-    (return-from game2))
+    (return-from game))
 
   (display-board board)
 
@@ -114,4 +114,7 @@
         (update-board board coords "o")))
 
   (incf turn-counter)
-  (game2 :board board))
+  (game :board board))
+
+(game)
+
